@@ -17,25 +17,26 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet weak var captainAmericaButton: UIButton!
     @IBOutlet weak var hulkButton: UIButton!
     @IBOutlet weak var avengersImageView: UIImageView!
-
+    @IBOutlet weak var chooseCharacterLabel: UILabel!
     
     var clickedButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Avengers Menu"
-        //setBtnImages()
+        self.title = ""
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setBtnImages()
-        
-        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        chooseCharacterLabel.text = ""
     }
     
+    //to set image and improve their content mode
     func setBtnImages() {
         ironManButton.setBackgroundImage(#imageLiteral(resourceName: "IronMan"), for: .normal)
-        ironManButton.layoutIfNeeded() // this and next to improve btn content mode
+        ironManButton.layoutIfNeeded()
         ironManButton.subviews.first?.contentMode = .scaleAspectFill
         blackPantherButton.setBackgroundImage(#imageLiteral(resourceName: "BlackPanther"), for: .normal)
         blackPantherButton.layoutIfNeeded()
@@ -52,26 +53,6 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         hulkButton.setBackgroundImage(#imageLiteral(resourceName: "hulk"), for: .normal)
         hulkButton.layoutIfNeeded()
         hulkButton.subviews.first?.contentMode = .scaleAspectFill
-        /*
-    //ironManButton.imageView?.image = #imageLiteral(resourceName: "IronMan")
-    ironManButton.imageView?.contentMode = .scaleAspectFill
-        ironManButton.setImage(#imageLiteral(resourceName: "IronMan"), for: .normal)
-    //blackPantherButton.imageView?.image = #imageLiteral(resourceName: "BlackPanther")
-    blackPantherButton.imageView?.contentMode = .scaleAspectFill
-        blackPantherButton.setImage(#imageLiteral(resourceName: "BlackPanther"), for: .normal)
-    //spidermanButton.imageView?.image = #imageLiteral(resourceName: "spiderman")
-    spidermanButton.imageView?.contentMode = .scaleAspectFill
-        spidermanButton.setImage(#imageLiteral(resourceName: "spiderman"), for: .normal)
-    //blackWidowButton.imageView?.image = #imageLiteral(resourceName: "BlackWidow")
-    blackWidowButton.imageView?.contentMode = .scaleAspectFill
-        blackWidowButton.setImage(#imageLiteral(resourceName: "BlackWidow"), for: .normal)
-    //captainAmericaButton.imageView?.image = #imageLiteral(resourceName: "CaptainAmerica")
-    captainAmericaButton.imageView?.contentMode = .scaleAspectFill
-        captainAmericaButton.setImage(#imageLiteral(resourceName: "CaptainAmerica"), for: .normal)
-    //hulkButton.imageView?.image = #imageLiteral(resourceName: "hulk")
-    hulkButton.imageView?.contentMode = .scaleAspectFill
-        hulkButton.setImage(#imageLiteral(resourceName: "hulk"), for: .normal)
-    */
     }
     
     //for presenting/dismissing modal view
@@ -83,8 +64,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         return DismissAnimator()
     }
     
-    
-    //prepare for segue and get current button's image and label
+    //prepare for segue and pass current button's image and label
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCharacterView" {
             let destinationVC = segue.destination as! CharacterViewController
@@ -100,7 +80,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         performSegue(withIdentifier: "toCharacterView", sender: self)
     }
     
-    //character buttons & setting current button
+    //character button actions & setting current button
     @IBAction func ironManWasTapped(_ sender: Any) {
         updateCurrentButton(currentButton: ironManButton)
     }
@@ -124,9 +104,4 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBAction func hulkWasTapped(_ sender: Any) {
         updateCurrentButton(currentButton: hulkButton)
     }
-    
-    
-    
-    
-
 }

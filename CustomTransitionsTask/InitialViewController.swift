@@ -11,10 +11,11 @@ import UIKit
 class InitialViewController: UIViewController, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var avengersImageView: UIImageView!
+    @IBOutlet weak var enterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Avenge the Galaxy!"
        navigationController?.delegate = self
     }
     
@@ -25,22 +26,18 @@ class InitialViewController: UIViewController, UIViewControllerTransitioningDele
         }
     }
     
-    
     @IBAction func enterButtonWasTapped(_ sender: Any) {
         performSegue(withIdentifier: "toMenu", sender: self)
     }
-    
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let showAnimator = ShowAnimator()
         
         if operation == .push {
             showAnimator.pushing = true
-            //showAnimator.addToViewController(viewController: toVC) //adding gesture transition
         }
         
         return showAnimator
     }
-    
 }
 

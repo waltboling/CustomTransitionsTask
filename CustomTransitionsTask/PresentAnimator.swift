@@ -29,6 +29,4 @@ class PresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(true)
         })
     }
-    
-
 }

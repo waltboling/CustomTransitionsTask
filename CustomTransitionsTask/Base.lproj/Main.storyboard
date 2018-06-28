@@ -69,6 +69,7 @@
                     <navigationItem key="navigationItem" id="SzW-D3-jTv"/>
                     <connections>
                         <outlet property="avengersImageView" destination="IKv-Gf-lXG" id="2B8-pG-W2O"/>
+                        <outlet property="enterButton" destination="0ed-9l-Ixh" id="KfY-t2-p4x"/>
                         <segue destination="5xw-M7-d61" kind="show" identifier="toMenu" id="Zj8-Zb-kcZ"/>
                     </connections>
                 </viewController>
@@ -96,54 +97,46 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BJu-Ry-4MA"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-jQ-vbY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0H-4v-YWc">
-                                <rect key="frame" x="0.0" y="75" width="375" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pf9-Bi-M1W">
+                                <rect key="frame" x="0.0" y="20" width="375" height="602"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-jQ-vbY">
+                                        <rect key="frame" x="0.0" y="123" width="375" height="499"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="622" id="4ra-rA-nd7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0H-4v-YWc">
+                                        <rect key="frame" x="0.0" y="47" width="375" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="z0H-4v-YWc" firstAttribute="trailing" secondItem="5JG-jQ-vbY" secondAttribute="trailing" id="1dS-Uz-wgV"/>
+                                    <constraint firstAttribute="trailing" secondItem="5JG-jQ-vbY" secondAttribute="trailing" id="A6S-7X-pZh"/>
+                                    <constraint firstItem="5JG-jQ-vbY" firstAttribute="centerX" secondItem="Pf9-Bi-M1W" secondAttribute="centerX" id="C36-im-9X6"/>
+                                    <constraint firstAttribute="bottom" secondItem="5JG-jQ-vbY" secondAttribute="bottom" id="NmB-fQ-4r0"/>
+                                    <constraint firstItem="5JG-jQ-vbY" firstAttribute="top" secondItem="Pf9-Bi-M1W" secondAttribute="top" constant="123" id="VtD-6i-XSQ"/>
+                                    <constraint firstItem="5JG-jQ-vbY" firstAttribute="leading" secondItem="Pf9-Bi-M1W" secondAttribute="leading" id="ZJt-TN-hx7"/>
+                                    <constraint firstAttribute="leading" secondItem="z0H-4v-YWc" secondAttribute="leading" id="hIA-dD-e5w"/>
+                                    <constraint firstItem="5JG-jQ-vbY" firstAttribute="top" secondItem="z0H-4v-YWc" secondAttribute="bottom" constant="42" id="j84-Ag-Dcr"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5JG-jQ-vbY" firstAttribute="top" secondItem="6SB-xQ-hgs" secondAttribute="top" id="6lH-WO-72h"/>
-                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="top" secondItem="5JG-jQ-vbY" secondAttribute="bottom" id="EFC-1j-4O5"/>
-                            <constraint firstItem="6SB-xQ-hgs" firstAttribute="trailing" secondItem="5JG-jQ-vbY" secondAttribute="trailing" id="GPu-fi-RMI"/>
-                            <constraint firstItem="z0H-4v-YWc" firstAttribute="centerX" secondItem="20c-6Z-PEA" secondAttribute="centerX" id="GrO-LZ-MNI"/>
-                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="bottom" secondItem="6SB-xQ-hgs" secondAttribute="bottom" id="H3e-iz-s9t"/>
-                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="trailing" secondItem="z0H-4v-YWc" secondAttribute="trailing" id="MKA-wJ-M44"/>
-                            <constraint firstItem="z0H-4v-YWc" firstAttribute="trailing" secondItem="6SB-xQ-hgs" secondAttribute="trailing" id="OK6-GQ-EdB"/>
-                            <constraint firstItem="5JG-jQ-vbY" firstAttribute="leading" secondItem="6SB-xQ-hgs" secondAttribute="leading" id="Q7t-4f-2dZ"/>
-                            <constraint firstItem="z0H-4v-YWc" firstAttribute="leading" secondItem="6SB-xQ-hgs" secondAttribute="leading" id="WVL-V2-IOu"/>
-                            <constraint firstItem="z0H-4v-YWc" firstAttribute="top" secondItem="6SB-xQ-hgs" secondAttribute="top" constant="55" id="dQi-dZ-pIA"/>
-                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="leading" secondItem="z0H-4v-YWc" secondAttribute="leading" id="oXh-Ds-SWq"/>
+                            <constraint firstItem="Pf9-Bi-M1W" firstAttribute="trailing" secondItem="Guz-Ob-QXT" secondAttribute="trailing" id="JD6-f7-7zA"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="leading" secondItem="Pf9-Bi-M1W" secondAttribute="leading" id="UaZ-G3-t2N"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="bottom" secondItem="6SB-xQ-hgs" secondAttribute="bottom" id="Xz2-v6-OdC"/>
+                            <constraint firstItem="Pf9-Bi-M1W" firstAttribute="bottom" secondItem="Guz-Ob-QXT" secondAttribute="bottom" constant="-45" id="ZiD-Rt-b7s"/>
+                            <constraint firstAttribute="trailing" secondItem="Pf9-Bi-M1W" secondAttribute="trailing" id="eq3-sC-ZrW"/>
+                            <constraint firstItem="Pf9-Bi-M1W" firstAttribute="top" secondItem="20c-6Z-PEA" secondAttribute="top" constant="20" id="fOz-Sq-N4d"/>
+                            <constraint firstItem="Pf9-Bi-M1W" firstAttribute="leading" secondItem="20c-6Z-PEA" secondAttribute="leading" id="kPo-XY-5N4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6SB-xQ-hgs"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="z0H-4v-YWc"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="GrO-LZ-MNI"/>
-                                <exclude reference="OK6-GQ-EdB"/>
-                                <exclude reference="WVL-V2-IOu"/>
-                                <exclude reference="dQi-dZ-pIA"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="z0H-4v-YWc"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="GrO-LZ-MNI"/>
-                                <include reference="OK6-GQ-EdB"/>
-                                <include reference="WVL-V2-IOu"/>
-                                <include reference="dQi-dZ-pIA"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="characterImageView" destination="5JG-jQ-vbY" id="ZY3-mR-Rq1"/>
@@ -297,6 +290,7 @@
                         <outlet property="blackPantherButton" destination="7s3-JQ-Jdv" id="cdk-hL-bU6"/>
                         <outlet property="blackWidowButton" destination="8z1-9Y-Uzw" id="2Zr-Na-tOj"/>
                         <outlet property="captainAmericaButton" destination="iPC-ie-MqA" id="RyI-iR-ZVK"/>
+                        <outlet property="chooseCharacterLabel" destination="FKM-kb-rds" id="tmZ-Wf-PEt"/>
                         <outlet property="hulkButton" destination="U4R-CA-HXC" id="v2J-cG-fmg"/>
                         <outlet property="ironManButton" destination="sob-ms-dH7" id="SXM-xu-oik"/>
                         <outlet property="spidermanButton" destination="z9N-GD-Vpg" id="ZIU-5X-hNC"/>
@@ -315,6 +309,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ogO-ZL-h2f">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

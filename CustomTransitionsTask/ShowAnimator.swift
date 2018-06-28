@@ -22,10 +22,8 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewContr
                 return
         }
         
-        // get reference to our fromView, toView and the container view that we should perform the transition in
         let container = transitionContext.containerView
         
-        //toViewController.view.alpha = 1
         let initialViewController = !self.pushing ? toViewController as! InitialViewController : fromViewController as! InitialViewController
         let menuViewController = !self.pushing ? fromViewController as! MenuViewController : toViewController as! MenuViewController
         
@@ -37,17 +35,14 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewContr
             self.offStageMenuController(menuViewController: menuViewController)
         }
         
-        // add the both views to our view controller
         container.addSubview(initialView!)
         container.addSubview(menuView!)
         
-        transitionContext.containerView.addSubview(toViewController.view)
-        
         //perform animation
-        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: .curveEaseIn, animations: {
             if (self.pushing){
                 self.onStageMenuController(menuViewController: menuViewController) // onstage items: slide in
-                //lboling because we do the turnary up top, we actually have a menuViewController to use
+                
                 menuViewController.avengersImageView.alpha = 0.5
                 initialViewController.avengersImageView.alpha = 0.5
             }
@@ -58,19 +53,14 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewContr
             }
             
         }, completion: { finished in
-            
-            // tell our transitionContext object that we've finished animating
             transitionContext.completeTransition(true)
-            
-            transitionContext.containerView.addSubview(toViewController.view)
-            
         })
     }
     
     func offStageMenuController(menuViewController: MenuViewController) {
         
-        let offstageLeft = CGAffineTransform(translationX: -150, y: 0)
-        let offstageRight = CGAffineTransform(translationX: 150, y: 0)
+        let offstageLeft = CGAffineTransform(translationX: -1000, y: 0)
+        let offstageRight = CGAffineTransform(translationX: 1000, y: 0)
         
         menuViewController.ironManButton.transform = offstageLeft
         menuViewController.blackPantherButton.transform = offstageLeft
@@ -94,7 +84,4 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewContr
         self.pushing = false
         return self
     }
-    
-    
-    
 }
