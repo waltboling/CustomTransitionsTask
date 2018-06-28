@@ -1,24 +1,332 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w9a-ad-NJo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Initial View Controller" id="BYZ-38-t0r" customClass="InitialViewController" customModule="CustomTransitionsTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avengers" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-Gf-lXG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-9l-Ixh">
+                                <rect key="frame" x="151.5" y="561" width="72" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="enterButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vq0-kC-LQb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0ed-9l-Ixh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="03O-Ol-7Mc"/>
+                            <constraint firstItem="IKv-Gf-lXG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Dxs-Uq-nqd"/>
+                            <constraint firstItem="IKv-Gf-lXG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fi7-BY-cVc"/>
+                            <constraint firstAttribute="bottom" secondItem="IKv-Gf-lXG" secondAttribute="bottom" id="Kqd-xs-GVx"/>
+                            <constraint firstItem="IKv-Gf-lXG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="esL-AL-CUm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ed-9l-Ixh" secondAttribute="bottom" constant="55" id="fgU-bO-ysY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0ed-9l-Ixh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="fgU-bO-ysY"/>
+                                <exclude reference="Kqd-xs-GVx"/>
+                                <exclude reference="03O-Ol-7Mc"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0ed-9l-Ixh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="fgU-bO-ysY"/>
+                                <include reference="Kqd-xs-GVx"/>
+                                <include reference="03O-Ol-7Mc"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="SzW-D3-jTv"/>
+                    <connections>
+                        <outlet property="avengersImageView" destination="IKv-Gf-lXG" id="2B8-pG-W2O"/>
+                        <segue destination="5xw-M7-d61" kind="show" identifier="toMenu" id="Zj8-Zb-kcZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+        </scene>
+        <!--Character View Controller-->
+        <scene sceneID="28i-rq-puq">
+            <objects>
+                <viewController title="Character View Controller" id="YRQ-Zk-1xv" customClass="CharacterViewController" customModule="CustomTransitionsTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="20c-6Z-PEA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Guz-Ob-QXT">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WUW-1r-Fhv"/>
+                                    <barButtonItem title="Dismiss" id="ZwI-D9-fGA">
+                                        <connections>
+                                            <action selector="dismissWasTapped:" destination="YRQ-Zk-1xv" id="Ul8-YH-K6V"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BJu-Ry-4MA"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-jQ-vbY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0H-4v-YWc">
+                                <rect key="frame" x="0.0" y="75" width="375" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5JG-jQ-vbY" firstAttribute="top" secondItem="6SB-xQ-hgs" secondAttribute="top" id="6lH-WO-72h"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="top" secondItem="5JG-jQ-vbY" secondAttribute="bottom" id="EFC-1j-4O5"/>
+                            <constraint firstItem="6SB-xQ-hgs" firstAttribute="trailing" secondItem="5JG-jQ-vbY" secondAttribute="trailing" id="GPu-fi-RMI"/>
+                            <constraint firstItem="z0H-4v-YWc" firstAttribute="centerX" secondItem="20c-6Z-PEA" secondAttribute="centerX" id="GrO-LZ-MNI"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="bottom" secondItem="6SB-xQ-hgs" secondAttribute="bottom" id="H3e-iz-s9t"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="trailing" secondItem="z0H-4v-YWc" secondAttribute="trailing" id="MKA-wJ-M44"/>
+                            <constraint firstItem="z0H-4v-YWc" firstAttribute="trailing" secondItem="6SB-xQ-hgs" secondAttribute="trailing" id="OK6-GQ-EdB"/>
+                            <constraint firstItem="5JG-jQ-vbY" firstAttribute="leading" secondItem="6SB-xQ-hgs" secondAttribute="leading" id="Q7t-4f-2dZ"/>
+                            <constraint firstItem="z0H-4v-YWc" firstAttribute="leading" secondItem="6SB-xQ-hgs" secondAttribute="leading" id="WVL-V2-IOu"/>
+                            <constraint firstItem="z0H-4v-YWc" firstAttribute="top" secondItem="6SB-xQ-hgs" secondAttribute="top" constant="55" id="dQi-dZ-pIA"/>
+                            <constraint firstItem="Guz-Ob-QXT" firstAttribute="leading" secondItem="z0H-4v-YWc" secondAttribute="leading" id="oXh-Ds-SWq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6SB-xQ-hgs"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="z0H-4v-YWc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GrO-LZ-MNI"/>
+                                <exclude reference="OK6-GQ-EdB"/>
+                                <exclude reference="WVL-V2-IOu"/>
+                                <exclude reference="dQi-dZ-pIA"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="z0H-4v-YWc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GrO-LZ-MNI"/>
+                                <include reference="OK6-GQ-EdB"/>
+                                <include reference="WVL-V2-IOu"/>
+                                <include reference="dQi-dZ-pIA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="characterImageView" destination="5JG-jQ-vbY" id="ZY3-mR-Rq1"/>
+                        <outlet property="characterName" destination="z0H-4v-YWc" id="Zzt-1q-4BR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYs-NH-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2893.5999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="9iI-Im-oIN">
+            <objects>
+                <viewController title="Menu View Controller" id="5xw-M7-d61" customClass="MenuViewController" customModule="CustomTransitionsTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hDZ-6r-iN6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avengers" translatesAutoresizingMaskIntoConstraints="NO" id="tBn-LV-BAP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sob-ms-dH7">
+                                <rect key="frame" x="51" y="131" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Iron Man">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ironManWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="pJb-GL-VMV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7s3-JQ-Jdv">
+                                <rect key="frame" x="51" y="292" width="120" height="120.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Black Panther">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackPantherWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="oJb-a4-sas"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9N-GD-Vpg">
+                                <rect key="frame" x="51" y="455.5" width="120" height="119.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Spiderman">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="spidermanWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="pdS-L0-BNJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z1-9Y-Uzw">
+                                <rect key="frame" x="204" y="131" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Black Widow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackWidowWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="p7G-Xp-fwp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPC-ie-MqA">
+                                <rect key="frame" x="204" y="293" width="120" height="120.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Captain America">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="captainAmericaWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="Et3-PX-JNe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-CA-HXC">
+                                <rect key="frame" x="204" y="455.5" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Hulk">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="hulkWasTapped:" destination="5xw-M7-d61" eventType="touchUpInside" id="kE2-K2-QaP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Character to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKM-kb-rds">
+                                <rect key="frame" x="21" y="583.5" width="332" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tBn-LV-BAP" firstAttribute="top" secondItem="ROW-OM-lt3" secondAttribute="top" id="2rL-5S-Ldn"/>
+                            <constraint firstItem="iPC-ie-MqA" firstAttribute="width" secondItem="sob-ms-dH7" secondAttribute="width" id="4FL-Jg-aNW"/>
+                            <constraint firstItem="ROW-OM-lt3" firstAttribute="bottom" secondItem="z9N-GD-Vpg" secondAttribute="bottom" constant="92" id="4SJ-3a-AdL"/>
+                            <constraint firstItem="8z1-9Y-Uzw" firstAttribute="width" secondItem="sob-ms-dH7" secondAttribute="width" id="7Bf-pp-qiE"/>
+                            <constraint firstItem="iPC-ie-MqA" firstAttribute="leading" secondItem="7s3-JQ-Jdv" secondAttribute="trailing" constant="33" id="DQw-EY-ZD8"/>
+                            <constraint firstItem="tBn-LV-BAP" firstAttribute="leading" secondItem="hDZ-6r-iN6" secondAttribute="leading" id="Ell-D5-S5E"/>
+                            <constraint firstItem="ROW-OM-lt3" firstAttribute="trailing" secondItem="8z1-9Y-Uzw" secondAttribute="trailing" constant="51" id="HAu-ZW-lwZ"/>
+                            <constraint firstItem="U4R-CA-HXC" firstAttribute="baseline" secondItem="z9N-GD-Vpg" secondAttribute="firstBaseline" id="Hiu-UW-dan"/>
+                            <constraint firstItem="7s3-JQ-Jdv" firstAttribute="top" secondItem="sob-ms-dH7" secondAttribute="bottom" constant="41" id="IuG-sq-BR5"/>
+                            <constraint firstItem="z9N-GD-Vpg" firstAttribute="height" secondItem="sob-ms-dH7" secondAttribute="height" id="Mb7-TL-T4q"/>
+                            <constraint firstItem="7s3-JQ-Jdv" firstAttribute="width" secondItem="sob-ms-dH7" secondAttribute="width" id="NDx-Dv-GRl"/>
+                            <constraint firstItem="ROW-OM-lt3" firstAttribute="trailing" secondItem="U4R-CA-HXC" secondAttribute="trailing" constant="51" id="Nuh-tC-B0v"/>
+                            <constraint firstItem="U4R-CA-HXC" firstAttribute="top" secondItem="iPC-ie-MqA" secondAttribute="bottom" constant="42" id="ONv-Cs-4c5"/>
+                            <constraint firstItem="U4R-CA-HXC" firstAttribute="leading" secondItem="z9N-GD-Vpg" secondAttribute="trailing" constant="33" id="Pap-1g-iPr"/>
+                            <constraint firstItem="sob-ms-dH7" firstAttribute="top" secondItem="8z1-9Y-Uzw" secondAttribute="top" id="QOJ-pT-zFM"/>
+                            <constraint firstItem="z9N-GD-Vpg" firstAttribute="width" secondItem="sob-ms-dH7" secondAttribute="width" id="Tnt-lT-d7T"/>
+                            <constraint firstItem="U4R-CA-HXC" firstAttribute="width" secondItem="sob-ms-dH7" secondAttribute="width" id="UdN-1q-e0o"/>
+                            <constraint firstItem="iPC-ie-MqA" firstAttribute="leading" secondItem="U4R-CA-HXC" secondAttribute="leading" id="WwP-BS-cVk"/>
+                            <constraint firstItem="FKM-kb-rds" firstAttribute="top" secondItem="U4R-CA-HXC" secondAttribute="bottom" constant="8" symbolic="YES" id="XiZ-9j-NXX"/>
+                            <constraint firstItem="iPC-ie-MqA" firstAttribute="height" secondItem="sob-ms-dH7" secondAttribute="height" id="bty-zv-irK"/>
+                            <constraint firstItem="8z1-9Y-Uzw" firstAttribute="leading" secondItem="sob-ms-dH7" secondAttribute="trailing" constant="33" id="cLU-44-zlD"/>
+                            <constraint firstAttribute="trailing" secondItem="tBn-LV-BAP" secondAttribute="trailing" id="foR-7P-sGf"/>
+                            <constraint firstItem="sob-ms-dH7" firstAttribute="leading" secondItem="7s3-JQ-Jdv" secondAttribute="leading" id="gsE-eG-Uds"/>
+                            <constraint firstItem="sob-ms-dH7" firstAttribute="leading" secondItem="ROW-OM-lt3" secondAttribute="leading" constant="51" id="hfJ-HI-LU7"/>
+                            <constraint firstItem="7s3-JQ-Jdv" firstAttribute="height" secondItem="sob-ms-dH7" secondAttribute="height" id="iPv-3d-foh"/>
+                            <constraint firstItem="FKM-kb-rds" firstAttribute="centerX" secondItem="hDZ-6r-iN6" secondAttribute="centerX" id="ikb-cZ-PEZ"/>
+                            <constraint firstItem="iPC-ie-MqA" firstAttribute="top" secondItem="8z1-9Y-Uzw" secondAttribute="bottom" constant="42" id="nFG-3C-mKx"/>
+                            <constraint firstItem="ROW-OM-lt3" firstAttribute="bottom" secondItem="FKM-kb-rds" secondAttribute="bottom" constant="41" id="nOi-XV-dv9"/>
+                            <constraint firstItem="z9N-GD-Vpg" firstAttribute="leading" secondItem="ROW-OM-lt3" secondAttribute="leading" constant="51" id="nqe-A8-yTl"/>
+                            <constraint firstItem="sob-ms-dH7" firstAttribute="top" secondItem="ROW-OM-lt3" secondAttribute="top" constant="67" id="o7R-Jb-EiU"/>
+                            <constraint firstItem="tBn-LV-BAP" firstAttribute="bottom" secondItem="ROW-OM-lt3" secondAttribute="bottom" id="qaj-2Z-QJL"/>
+                            <constraint firstItem="U4R-CA-HXC" firstAttribute="height" secondItem="sob-ms-dH7" secondAttribute="height" id="wMG-LP-kjc"/>
+                            <constraint firstItem="z9N-GD-Vpg" firstAttribute="baseline" secondItem="U4R-CA-HXC" secondAttribute="firstBaseline" id="yNL-QW-Zag"/>
+                            <constraint firstItem="8z1-9Y-Uzw" firstAttribute="height" secondItem="sob-ms-dH7" secondAttribute="height" id="zHE-iq-xJ3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ROW-OM-lt3"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FKM-kb-rds"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ikb-cZ-PEZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="FKM-kb-rds"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ikb-cZ-PEZ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="avengersImageView" destination="tBn-LV-BAP" id="m7A-Rl-Vn4"/>
+                        <outlet property="blackPantherButton" destination="7s3-JQ-Jdv" id="cdk-hL-bU6"/>
+                        <outlet property="blackWidowButton" destination="8z1-9Y-Uzw" id="2Zr-Na-tOj"/>
+                        <outlet property="captainAmericaButton" destination="iPC-ie-MqA" id="RyI-iR-ZVK"/>
+                        <outlet property="hulkButton" destination="U4R-CA-HXC" id="v2J-cG-fmg"/>
+                        <outlet property="ironManButton" destination="sob-ms-dH7" id="SXM-xu-oik"/>
+                        <outlet property="spidermanButton" destination="z9N-GD-Vpg" id="ZIU-5X-hNC"/>
+                        <segue destination="YRQ-Zk-1xv" kind="presentation" identifier="toCharacterView" id="uaz-xS-b47"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lm5-mc-gyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d9d-tN-xsB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w9a-ad-NJo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ogO-ZL-h2f">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="syt-WO-gqa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRA-Nf-Z1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Avengers" width="1706" height="1280"/>
+    </resources>
 </document>
